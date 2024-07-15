@@ -13,8 +13,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import com.sendiko.selector.SelectorButton
-import com.sendiko.selector.SelectorData
 
 /**
 *
@@ -51,7 +49,7 @@ fun Selector(
             items.forEach {
                 SelectorButton(
                     modifier = Modifier.weight(1f),
-                    text = it.label,
+                    data = it,
                     isActive = currentSelected == it,
                     onClick = {
                         onSelect(it)

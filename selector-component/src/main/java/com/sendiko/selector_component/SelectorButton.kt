@@ -18,7 +18,7 @@ import androidx.compose.material3.Text
 @Composable
 fun SelectorButton(
     modifier: Modifier = Modifier,
-    text: String,
+    data: SelectorData,
     isActive: Boolean,
     onClick: () -> Unit
 ) {
@@ -32,7 +32,7 @@ fun SelectorButton(
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = text,
+            text = data.label,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(4.dp)
         )
