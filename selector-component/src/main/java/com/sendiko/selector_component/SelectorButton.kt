@@ -5,7 +5,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,21 +19,24 @@ fun SelectorButton(
     modifier: Modifier = Modifier,
     data: SelectorData,
     isActive: Boolean,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    containerColor: Color,
+    contentColor: Color
 ) {
-    val containerColor = if (isActive) MaterialTheme.colorScheme.primaryContainer
+    val buttonColor = if (isActive) containerColor
     else Color.Transparent
     Box(
         modifier = modifier
             .clip(CircleShape)
-            .background(containerColor)
+            .background(buttonColor)
             .clickable { onClick() },
         contentAlignment = Alignment.Center
     ) {
         Text(
             text = data.label,
             textAlign = TextAlign.Center,
-            modifier = Modifier.padding(4.dp)
+            modifier = Modifier.padding(4.dp),
+            color = contentColor
         )
     }
 }
