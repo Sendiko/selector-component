@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,6 +25,7 @@ import androidx.compose.ui.unit.dp
  * @param items is for how many buttons will be shown.
 *
  * @see SelectorData
+ * @author Sendiko
 * */
 
 @Composable
@@ -38,7 +40,7 @@ fun Selector(
         modifier = modifier
             .fillMaxWidth()
             .clip(CircleShape)
-            .background(color = color.surfaceColor)
+            .background(color = color.surfaceColor?: MaterialTheme.colorScheme.surface)
     ) {
         Row(
             modifier = Modifier.padding(8.dp),
@@ -50,11 +52,11 @@ fun Selector(
                     modifier = Modifier.weight(1f),
                     data = it,
                     isActive = currentSelected == it,
-                    onClick = {
-                        onSelect(it)
+                    onClick = { data ->
+                        onSelect(data)
                     },
-                    containerColor = color.buttonColor,
-                    contentColor = color.textColor
+                    containerColor = color.buttonColor?: MaterialTheme.colorScheme.surfaceContainerHigh,
+                    contentColor = color.textColor?: MaterialTheme.colorScheme.onSurface
                 )
             }
         }
