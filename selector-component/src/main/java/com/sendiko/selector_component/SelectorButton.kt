@@ -19,7 +19,7 @@ fun SelectorButton(
     modifier: Modifier = Modifier,
     data: SelectorData,
     isActive: Boolean,
-    onClick: () -> Unit,
+    onClick: (data: SelectorData) -> Unit,
     containerColor: Color,
     contentColor: Color
 ) {
@@ -29,7 +29,7 @@ fun SelectorButton(
         modifier = modifier
             .clip(CircleShape)
             .background(buttonColor)
-            .clickable { onClick() },
+            .clickable { onClick(data) },
         contentAlignment = Alignment.Center
     ) {
         Text(
