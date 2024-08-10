@@ -40,7 +40,7 @@ fun Selector(
         modifier = modifier
             .fillMaxWidth()
             .clip(CircleShape)
-            .background(color = color.surfaceColor?: MaterialTheme.colorScheme.surface)
+            .background(color = color.surfaceColor?: MaterialTheme.colorScheme.tertiaryContainer)
     ) {
         Row(
             modifier = Modifier.padding(8.dp),
@@ -55,7 +55,7 @@ fun Selector(
                     onClick = { data ->
                         onSelect(data)
                     },
-                    containerColor = color.buttonColor?: MaterialTheme.colorScheme.surfaceContainerHigh,
+                    containerColor = color.buttonColor?: MaterialTheme.colorScheme.surface,
                     contentColor = color.textColor?: MaterialTheme.colorScheme.onSurface
                 )
             }

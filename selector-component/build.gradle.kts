@@ -53,7 +53,7 @@ afterEvaluate {
             create<MavenPublication>("maven") {
                 groupId = "com.github.Sendiko"
                 artifactId = "selector_component"
-                version = "1.0.0"
+                version = "1.0.4"
 
                 from(components["release"])
             }
